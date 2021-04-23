@@ -1,0 +1,15 @@
+{
+  "name": "valorant-callouts-anki",
+  "version": "1.0.0",
+  "description": "Generate Anki decks for Valorant map callouts based on screenshots",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "anki-apkg-export": "^4.0.3"
+  }
+}
