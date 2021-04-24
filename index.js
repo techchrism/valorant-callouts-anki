@@ -23,7 +23,8 @@ const AnkiExport = require('anki-apkg-export').default;
     console.log(`Loaded ${mapDirs.length} map${mapDirs.length === 1 ? '' : 's'}`);
     for(const mapName of mapDirs)
     {
-        const apkg = new AnkiExport(mapName);
+        const deckName = `Valorant ${mapName} Callouts`;
+        const apkg = new AnkiExport(deckName);
         
         const screenshots = (await fs.readdir(path.join(screenshotsDir, mapName), {withFileTypes: true})).filter(i => i.isFile()).map(i => i.name);
         for(const screenshot of screenshots)
@@ -37,7 +38,7 @@ const AnkiExport = require('anki-apkg-export').default;
         }
     
         const zip = await apkg.save();
-        await fs.writeFile(path.join(outputDir, `${mapName}.apkg`), zip, 'binary');
+        await fs.writeFile(path.join(outputDir, `${deckName}.apkg`), zip, 'binary');
         console.log(`Completed ${screenshots.length} cards for ${mapName}`);
     }
 })();
